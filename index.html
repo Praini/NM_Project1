@@ -1,26 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* Basic page styling */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Login box styling */
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #1b5edb;
+    }
+
+    #msg {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #msg.success {
+      color: green;
+    }
+
+    #msg.error {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-    <!DOCTYPE html><html><head><style>
-body{font-family:Arial;text-align:center;margin-top:100px}
-input{margin:5px;padding:5px}
-</style></head><body>
-<h2>Login</h2>
-<input id="u" placeholder="Username"><br>
-<input id="p" type="password" placeholder="Password"><br>
-<button onclick="login()">Login</button>
-<p id="msg"></p>
-<script>
-function login(){let u=u.value,p=p.value;
-if(u==="admin"&&p==="1234")msg.textContent="Login Successful!";
-else msg.textContent="Invalid Credentials";}
-</script>
-</body></html>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <input id="u" placeholder="Username"><br>
+    <input id="p" type="password" placeholder="Password"><br>
+    <button onclick="login()">Login</button>
+    <p id="msg"></p>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('u').value.trim();
+      const password = document.getElementById('p').value.trim();
+      const msg = document.getElementById('msg');
+
+      if (username === "admin" && password === "1234") {
+        msg.textContent = "✅ Login Successful!";
+        msg.className = "success";
+      } else {
+        msg.textContent = "❌ Invalid Credentials";
+        msg.className = "error";
+      }
+    }
+  </script>
 
 </body>
 </html>
